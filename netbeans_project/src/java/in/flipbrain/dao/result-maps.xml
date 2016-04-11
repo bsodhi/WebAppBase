@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+We have enabled automapping of table columns to DTO properties. As such, not
+many column to property mapings are seen here in result maps. For more details
+see: http://www.mybatis.org/mybatis-3/sqlmap-xml.html#Auto-mapping
+-->
+<mapper namespace="in.flipbrain.dto">
+    <resultMap id="BaseDto" type="BaseDto">
+        <result property="insTs" column="insTs"/>
+        <result property="updTs" column="updTs"/>
+    </resultMap>
+    <resultMap id="UserDto" type="UserDto" extends="BaseDto">
+        <result property="userId" column="userId"/>
+        <result property="hashedPassword" column="password"/>
+        <collection property="roles" ofType="RoleDto">
+            <id property="roleId" column="roleId"/>
+            <result property="role" column="role"/>
+            <result property="roleDescription" column="roleDescription"/>
+        </collection>
+    </resultMap>
+</mapper>

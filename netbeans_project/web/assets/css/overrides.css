@@ -1,0 +1,125 @@
+/* 
+    Created on : Feb 19, 2014, 10:11:16 PM
+    Author     : Balwinder Sodhi
+*/
+body {
+  padding-top: 70px;
+}
+u {    
+    border-bottom: 1px dotted #000;
+    text-decoration: none;
+}
+.big-text {
+	font-size: 1.25em;
+	text-align: justify;
+}
+.footer {
+   position:fixed;
+   bottom:0;
+   width:100%;
+   height:20px;   /* Height of the footer */
+}
+.box {
+    border: #269abc thin solid;
+    padding: 10px;
+    margin: 10px;
+}
+.grid-350h {
+    height: 350px;
+    width: 100%;
+}
+
+.sec-heading {
+    font-variant: small-caps;
+    font-weight: bolder;
+    font-size: large;
+    color: #269abc;
+}
+.sec-heading2 {
+    font-size: 1.5em;
+    color: #507F3E;
+}
+#spinner {
+    position: relative;
+}
+.ajax-loader {
+    position: fixed;
+    left: 42%;
+    top: 15px;
+    display: none;
+    z-index: 90;
+}
+.left2 {float:left}
+.right2{float:right}
+.centered{margin:0 auto; text-align: center;}
+
+.left1 {float:left;padding: inherit; margin: inherit}
+.right1{float:right; padding: inherit; margin: inherit}
+
+th {
+    background-color: #c6e3e9;
+}
+
+/* Animation area */
+.animate-show {
+  line-height: 20px;
+  opacity: 1;
+  padding: 10px;
+  background: white;
+}
+
+.animate-show.ng-hide-add.ng-hide-add-active,
+.animate-show.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+}
+
+.animate-show.ng-hide {
+  line-height: 0;
+  opacity: 0;
+  padding: 0 10px;
+}
+
+.status-msg {
+    background-color: #c6e3e9; 
+    width: 100%;
+    height: 15px; 
+    font-size: small;
+    text-align: center;
+}
+.selected-item {
+    border-right: #28a4c9 dotted 1px;
+}
+.animate-text {
+    -webkit-animation: color-change 1s infinite;
+    -moz-animation: color-change 1s infinite;
+    -o-animation: color-change 1s infinite;
+    -ms-animation: color-change 1s infinite;
+    animation: color-change 1s infinite;
+}
+
+@-webkit-keyframes color-change {
+    0% { color: red; }
+    50% { color: blue; }
+    100% { color: red; }
+}
+@-moz-keyframes color-change {
+    0% { color: red; }
+    50% { color: blue; }
+    100% { color: red; }
+}
+@-ms-keyframes color-change {
+    0% { color: red; }
+    50% { color: blue; }
+    100% { color: red; }
+}
+@-o-keyframes color-change {
+    0% { color: red; }
+    50% { color: blue; }
+    100% { color: red; }
+}
+@keyframes color-change {
+    0% { color: red; }
+    50% { color: blue; }
+    100% { color: red; }
+}

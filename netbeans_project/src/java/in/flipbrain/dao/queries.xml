@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="in.flipbrain.dto">
+    <select id="getUserCount" resultType="int">
+        select count(*) from common.User;
+    </select>
+    <insert id="insertUser" useGeneratedKeys="true"
+            keyProperty="userId">
+        INSERT INTO common.User
+        (email, password, firstName, lastName, middleName, gender)
+        VALUES ( #{email}, #{hashedPassword}, #{firstName}, #{lastName}, #{middleName},
+        #{gender});
+
+    </insert>
+    <update id="updateUser">
+        UPDATE common.User
+        SET
+        email = #{email},
+        <if test="password != null">
+            password = #{hashedPassword},
+        </if>
+        firstName = #{firstName}, lastName = #{lastName}, gender = #{gender},
+        verified = #{verified}
+        WHERE userId=#{userId}
+    </update>
+    <update id="recordLoginAttempt">
+        UPDATE common.Users
+        SET lastLogin = CURRENT_TIMESTAMP(), failedLogins = #{failedLogins}
+        WHERE userId=#{userId}
+    </update>
+    <sql id="userSelect">
+        SELECT u.*,r.* FROM common.User u
+        LEFT OUTER JOIN common.UserRole ur on ur.userId=ur.userId
+        LEFT OUTER JOIN common.Role r on r.roleId=ur.roleId
+    </sql>
+    <select id="getUserById" resultMap="UserDto">
+        <include refid="userSelect"/>
+        WHERE u.userId=#{userId};
+    </select>
+    <select id="getUserByLogin" resultMap="UserDto">
+        <include refid="userSelect"/>
+        WHERE u.login=#{login}
+    </select>
+    <select id="getUserByEmail" resultMap="UserDto">
+        <include refid="userSelect"/>
+        WHERE u.email=#{email}
+    </select>
+    <insert id="logActivity">
+        INSERT INTO common.AuditLogs
+        (appUser,activity, clientIp)
+        VALUES(#{appUser}, #{activity}, #{clientIp});
+    </insert>
+
+</mapper>
