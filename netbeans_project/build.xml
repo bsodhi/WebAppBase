@@ -70,10 +70,10 @@
     -->
     <target name="-pre-dist">
         <java jar="${user.home}/bin/closure-compiler/compiler.jar" fork="true" failonerror="true">
-            <arg value="--js=${user.home}/myfiles/git/WebAppBase/web/assets/js/app/app.js"/>
-            <arg value="--js=${user.home}/myfiles/git/WebAppBase/web/assets/js/app/services.js"/>
-            <arg value="--js=${user.home}/myfiles/git/WebAppBase/web/assets/js/app/controllers.js"/>
-            <arg value="--js_output_file=${user.home}/myfiles/git/WebAppBase/web/assets/js/lib/app.min.js"/>
+            <arg value="--js=${webinf.dir}/../assets/js/app/app.js"/>
+            <arg value="--js=${webinf.dir}/../assets/js/app/services.js"/>
+            <arg value="--js=${webinf.dir}/../assets/js/app/controllers.js"/>
+            <arg value="--js_output_file=${webinf.dir}/../assets/js/lib/app.min.js"/>
        </java>
     </target>
 </project>
